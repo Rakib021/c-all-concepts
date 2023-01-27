@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "__config": "cpp",
+        "algorithm": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp",
+        "deque": "cpp",
+        "functional": "cpp",
+        "locale": "cpp",
+        "random": "cpp"
+    }
+}
