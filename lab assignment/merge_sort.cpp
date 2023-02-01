@@ -53,6 +53,21 @@ vector<int> merge_sort(vector<int> a)
     return sorted_a;
 }
 
+void removeDuplicatesAndSort(vector<int> &arr) {
+    merge_sort(arr);
+    int j = 0;
+    for (int i = 0; i < arr.size() - 1; i++) {
+        if (arr[i] != arr[i + 1]) {
+            arr[j++] = arr[i];
+        }
+    }
+    arr[j++] = arr[arr.size() - 1];
+    arr.resize(j);
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
+    }
+}
+
 int main()
 {
 
@@ -63,9 +78,8 @@ int main()
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    vector<int>sorted_a = merge_sort(a);
+    // vector<int>sorted_a = merge_sort(a);
 
-    for(int i=0;i<sorted_a.size();i++){
-        cout<<sorted_a[i]<<" ";
-    }
+   
+     removeDuplicatesAndSort(a);
 }

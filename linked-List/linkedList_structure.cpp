@@ -12,12 +12,14 @@ class LinkedList
 {
 public:
     node *head;
+    int sz;
 
     // constructor for assign head value
 
     LinkedList()
     {
         head = NULL;
+        sz = 0;
     }
 
     // create a new node with data= value and next = NULL
@@ -35,6 +37,7 @@ public:
 
     void insertAtHead(int value)
     {
+        sz++;
 
         node *a = createNewNode(value);
 
@@ -88,13 +91,74 @@ public:
         {
             if (a->data == value)
             {
-cout<<value<<"is found at index "<<index<<"\n";
+                cout << value << "is found at index " << index << "\n";
             }
 
             a = a->nxt;
             index++;
         }
+    }
+    void insertAtAnyIndex(int index, int value)
+    {
+        if (index < 0 || index > sz)
+        {
+            return;
+        }
 
+        if (index == 0)
+        {
+            insertAtHead(value);
+            return;
+        }
+        sz++;
+        node *a = head;
+        int cur_index = 0;
+
+        while (cur_index != index - 1)
+        {
+            a = a->nxt;
+            cur_index++;
+        }
+
+        node *newnode = createNewNode(value);
+        newnode->nxt = a->nxt;
+        a->nxt = newnode;
+    }
+    void deleteAtHaed()
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+        sz--;
+        node *a = head;
+        head = a->nxt;
+        delete a;
+    }
+
+    void deleteAnyIndex(int index)
+    {
+        if(index<0 || index>sz-1){
+            return;
+        }
+        if (index == 0)
+        {
+            deleteAtHaed();
+            return;
+        }
+        sz--;
+        node *a = head;
+        int cur_index = 0;
+
+        while (cur_index != index - 1)
+        {
+            a = a->nxt;
+            cur_index++;
+        }
+
+        node *b = a->nxt;
+        a->nxt = b->nxt;
+        delete b;
     }
 };
 
@@ -109,8 +173,9 @@ int main()
 
     l.traverse();
 
-    l.searchDistincValue(10);
-    l.searchDistincValue(5);
+    l.insertAtAnyIndex(1, 100);
+    l.traverse();
 
-    l.searchAllValue(20);
+    l.deleteAtHaed();
+    l.traverse();
 }

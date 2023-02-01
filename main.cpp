@@ -1,16 +1,16 @@
-#include<bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
-#include<stdio.h>
-
-int print(int n)
+template <typename INT,typename FLOAT>
+FLOAT Sum(INT p, FLOAT q)
 {
-    if(n==0)
-        return 0;
-    print(n-1);
-    cout<<n<<" ";
+    return p+q;
 }
-int main(){
-  print(5);
-
+int main ()
+{
+    int x = 55;
+    float result,y = 60.55;
+    result = Sum<int,float>(x, y);
+    cout << result << endl;
     return 0;
 }
