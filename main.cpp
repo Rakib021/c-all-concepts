@@ -1,16 +1,12 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
-template <typename INT,typename FLOAT>
-FLOAT Sum(INT p, FLOAT q)
-{
-    return p+q;
-}
-int main ()
-{
-    int x = 55;
-    float result,y = 60.55;
-    result = Sum<int,float>(x, y);
-    cout << result << endl;
+
+int main() {
+    vector<int> v;
+    for (int i = 1;i <= 5;i++)
+        v.push_back(i);
+    v.pop_back();
+    cout << v.size() << '\n';
+    v.push_back(5 * 5);
     return 0;
 }
